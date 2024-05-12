@@ -1,0 +1,34 @@
+<project>
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>root</groupId>
+   <version>1.0</version>
+   <properties>
+      <maven.compiler.source>22</maven.compiler.source>
+      <maven.compiler.target>22</maven.compiler.target>
+   </properties>
+   <artifactId>confluence-to-anki</artifactId>
+   <packaging>pom</packaging>
+   <name>confluence-to-anki</name>
+   <build>
+      <pluginManagement>
+         <plugins>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-site-plugin</artifactId>
+            </plugin>
+         </plugins>
+      </pluginManagement>
+   </build>
+   <dependencyManagement>
+      <dependencies>
+
+      </dependencies>
+   </dependencyManagement>
+   <distributionManagement>
+      <site>
+         <id>site</id>
+         <name>project website</name>
+         <url>scp://local.company.com/websites/project.company.com/</url>
+      </site>
+   </distributionManagement>
+</project>
