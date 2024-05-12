@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+actor Confluence
+
+component confluence2anki as "confluence-to-anki" {
+    component cli {
+    }
+    component confluence {
+    }
+    component conversion {
+    }
+    component anki {
+    }
+}
+
+actor User
+
+User --- cli
+cli -- conversion
+conversion -- confluence
+conversion -- anki
+confluence -- Confluence
+anki -- User
+@enduml
