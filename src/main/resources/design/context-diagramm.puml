@@ -1,0 +1,10 @@
+@startuml
+left to right direction
+actor Confluence
+component confluence2anki as "confluence-to-anki" {
+}
+actor User
+Confluence -- confluence2anki : http get
+confluence2anki -- User : csv
+
+@enduml
