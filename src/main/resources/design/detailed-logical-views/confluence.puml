@@ -1,0 +1,61 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package services {
+    class PageService {
+        +getPage(pageId:String, bodyFormat:BodyRepresentation) : Page
+    }
+    class LabelService {
+        +getLabelsForPage(pageId:String) :
+    }
+
+    class ConfluenceCompositeService {
+        +getPageWithLabels() : LabeledPage
+    }
+
+    package mapping {
+        class LabeledPageMapping {
+            +mapFrom(page: Page, labels : Labels) : LabeledPage
+        }
+    }
+}
+
+package model {
+    class View {
+        -value : String
+    }
+    class Page {
+        -body : View
+    }
+    class Labels {
+        results : List<Label>
+    }
+    class Label {
+        -name : String
+    }
+    package resources {
+        class LabeledPage {
+            -body : String
+            -labels : List<String>
+        }
+    }
+}
+
+database Confluence {
+}
+
+component conversion {
+}
+
+ConfluenceCompositeService -> PageService
+ConfluenceCompositeService --> LabelService
+PageService ---> Confluence
+LabelService --> Confluence
+ConfluenceCompositeService -> LabeledPageMapping
+LabeledPageMapping --=-> LabeledPage
+PageService ---> Page
+Page -> View
+Labels -> Label
+LabelService -> Labels
+conversion --> ConfluenceCompositeService
+@enduml
