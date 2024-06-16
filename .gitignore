@@ -12,6 +12,7 @@ target/
 *.iml
 *.ipr
 .idea/*
+out/
 
 ### Eclipse ###
 .apt_generated
@@ -37,3 +38,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+#confidential credentials
+secret.properties

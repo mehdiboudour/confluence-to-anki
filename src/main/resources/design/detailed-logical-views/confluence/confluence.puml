@@ -12,13 +12,13 @@ package services {
     class ConfluenceCompositeService {
         +getPageWithLabels() : LabeledPage
     }
+}
 
     package mapping {
         class LabeledPageMapping {
             +mapFrom(page: Page, labels : Labels) : LabeledPage
         }
     }
-}
 
 package model {
     class View {
