@@ -25,7 +25,10 @@ package model {
         -value : String
     }
     class Page {
-        -body : View
+        -body : Body
+    }
+    class Body {
+        -view : View
     }
     class Labels {
         results : List<Label>
@@ -54,7 +57,8 @@ LabelService --> Confluence
 ConfluenceCompositeService -> LabeledPageMapping
 LabeledPageMapping --=-> LabeledPage
 PageService ---> Page
-Page -> View
+Page -> Body
+Body -> View
 Labels -> Label
 LabelService -> Labels
 conversion --> ConfluenceCompositeService

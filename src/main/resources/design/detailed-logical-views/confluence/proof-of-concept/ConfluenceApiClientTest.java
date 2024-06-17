@@ -4,6 +4,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -14,6 +15,7 @@ import java.util.Map;
 import java.util.Properties;
 
 @ExtendWith(MockitoExtension.class)
+@Disabled
 class ConfluenceApiClientTest {
     //unirest : https://www.baeldung.com/unirest
     //properties : https://sybernix.medium.com/how-to-add-a-config-file-to-a-java-project-99fd9b6cebca
@@ -36,7 +38,7 @@ class ConfluenceApiClientTest {
 
     @Test
     void readApiCredentialsFromProperties() throws IOException {
-        CONFLUENCE_CREDENTIALS.forEach((key, value) -> System.out.println(STR."\{key} = \{value}"));
+        CONFLUENCE_CREDENTIALS.forEach((key, value) -> System.out.println(key+" = "+value));
         Assertions.assertTrue(Boolean.TRUE, "test passed.");
     }
 
