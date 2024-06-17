@@ -1,6 +1,5 @@
 package confluence.services;
 
-import com.mashape.unirest.http.HttpMethod;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.GetRequest;
 import org.junit.jupiter.api.Assertions;
