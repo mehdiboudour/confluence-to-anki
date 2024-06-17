@@ -9,6 +9,6 @@ public class JsonLoader {
 
     public static <T> T loadObjectFrom(Class<T> type, String resource) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        return (T) objectMapper.readValue(new File(resource), type);
+        return objectMapper.readValue(new File(resource), type);
     }
 }

@@ -22,8 +22,8 @@ import java.io.IOException;
 class PageServiceTest {
 
     private static final String PAGE_SAMPLE = "src/test/resources/confluence/services/page.json";
-
     private PageService serviceTest;
+
     @Mock
     private GetRequest mockGetRequest;
     @Mock
