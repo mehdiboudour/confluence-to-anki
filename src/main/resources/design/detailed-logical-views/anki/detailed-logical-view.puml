@@ -1,11 +1,7 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-package controller {
-    class AnkiToCsvController {
-        +exportNotesToCsv(notes : NotesBatch) : List<String>
-    }
-}
+
 
 package model {
     class Note {
@@ -33,14 +29,18 @@ package model {
     }
 }
 
-package mapping {
-    class AnkiToCsvMapping {
-        +mapTo(batch : NotesBatch) : Map<Class<T extends Note>, CsvFile>
-    }
-
-}
-
 package csv {
+    package controller {
+        class AnkiToCsvController {
+            +exportNotesToCsv(notes : NotesBatch) : List<String>
+        }
+    }
+    package mapping {
+        class AnkiToCsvMapping {
+            +mapTo(batch : NotesBatch) : Map<Class<T extends Note>, CsvFile>
+        }
+
+    }
     package model {
         class CsvFile {
             -records : List<CsvRecord>
@@ -60,7 +60,7 @@ package csv {
 
 AnkiToCsvMapping ..> NotesBatch
 AnkiToCsvMapping .> CsvFile
-AnkiToCsvController -> AnkiToCsvMapping
+AnkiToCsvController --> AnkiToCsvMapping
 AnkiToCsvController -> ExportService
 
 @enduml

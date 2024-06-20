@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,10 +24,18 @@ class PrintStringWriterToFile {
 
     @Test
     void test() throws IOException {
-        FileWriter fw = new FileWriter(DESTINATION+"/output.csv");
+        FileWriter fw = new FileWriter("%s/output.csv".formatted(DESTINATION));
         StringWriter sw = new StringWriter();
         sw.write(DATA_SET);
         fw.write(sw.toString());
         fw.close();
+        Assertions.assertTrue(Boolean.TRUE, "Test OK.");
+    }
+
+    @Test
+    void getCurrentDirectory() {
+        String currentDirectory = System.getProperty("user.dir");
+        System.out.print(currentDirectory);
+        Assertions.assertTrue(Boolean.TRUE);
     }
 }

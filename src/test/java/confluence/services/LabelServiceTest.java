@@ -20,7 +20,7 @@ import java.io.IOException;
 @ExtendWith(MockitoExtension.class)
 class LabelServiceTest {
 
-    private static final String LABELL_SAMPLE = "src/test/resources/confluence/services/labels.json";
+    private static final String LABELL_SAMPLE = "src/test/resources/confluence/labels.json";
     private LabelService serviceTest;
 
     @Mock

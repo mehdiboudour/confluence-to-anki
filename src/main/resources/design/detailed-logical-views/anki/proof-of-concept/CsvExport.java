@@ -1,5 +1,4 @@
 import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -9,7 +8,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 @ExtendWith(MockitoExtension.class)
 @Disabled
@@ -34,7 +32,6 @@ class CsvExport {
         StringWriter output = new StringWriter();
         CSVFormat format = CSVFormat.DEFAULT.builder().setRecordSeparator("\n").build();
         for(List<String> csvRecord : DATA_SET) {
-            int printedRecords = 0;
             final boolean[] newLine = {Boolean.TRUE};
             csvRecord.forEach(
                     cell -> {
@@ -46,10 +43,7 @@ class CsvExport {
                         }
                     }
             );
-            printedRecords++;
-            if(printedRecords < DATA_SET.size()) {
-                output.append(format.getRecordSeparator());
-            }
+            output.append(format.getRecordSeparator());
         }
         System.out.print(output);
         Assertions.assertEquals(expected, output.toString());

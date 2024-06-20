@@ -18,7 +18,7 @@ import java.io.IOException;
 @ExtendWith(MockitoExtension.class)
 class PageServiceTest {
 
-    private static final String PAGE_SAMPLE = "src/test/resources/confluence/services/page.json";
+    private static final String PAGE_SAMPLE = "src/test/resources/confluence/page.json";
     private PageService serviceTest;
 
     @Mock

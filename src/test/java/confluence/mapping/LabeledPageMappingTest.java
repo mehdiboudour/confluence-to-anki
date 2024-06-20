@@ -15,8 +15,8 @@ import java.io.IOException;
 @ExtendWith(MockitoExtension.class)
 class LabeledPageMappingTest {
 
-    private static final String PAGE_SAMPLE = "src/test/resources/confluence/services/page.json";
-    private static final String LABELS_SAMPLE = "src/test/resources/confluence/services/labels.json";
+    private static final String PAGE_SAMPLE = "src/test/resources/confluence/page.json";
+    private static final String LABELS_SAMPLE = "src/test/resources/confluence/labels.json";
 
     @InjectMocks
     private LabeledPageMapping mappingTest;
