@@ -11,7 +11,7 @@ public class PageService extends ResourceAbstractService{
 
     private static final Logger LOG = LogManager.getLogger(PageService.class);
     private static final String RESOURCE = "/pages/{pageId}";
-    protected PageService() {
+    public PageService() {
         super(RESOURCE);
     }
 

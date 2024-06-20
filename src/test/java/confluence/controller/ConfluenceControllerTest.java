@@ -1,10 +1,12 @@
-package confluence.services;
+package confluence.controller;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
 import confluence.mapping.LabeledPageMapping;
 import confluence.model.Labels;
 import confluence.model.Page;
 import confluence.model.resources.LabeledPage;
+import confluence.services.LabelService;
+import confluence.services.PageService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -18,9 +20,9 @@ import java.io.IOException;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-class ConfluenceCompositeServiceTest {
+class ConfluenceControllerTest {
 
-    private ConfluenceCompositeService serviceTest;
+    private ConfluenceController controllerTest;
 
     @Mock
     private PageService pageService;
@@ -31,7 +33,7 @@ class ConfluenceCompositeServiceTest {
 
     @Test
     void getPageWithLabelTest() throws UnirestException, IOException {
-        serviceTest = new ConfluenceCompositeService(
+        controllerTest = new ConfluenceController(
                 pageService, labelService, labeledPageMapping
         );
         String expected = "As expected.";
@@ -43,7 +45,7 @@ class ConfluenceCompositeServiceTest {
         Mockito.when(labeledPageMapping.mapFrom(
                 ArgumentMatchers.any(Page.class), ArgumentMatchers.any(Labels.class)))
                 .thenReturn(new LabeledPage(expected, List.of(expected, expected, expected)));
-        LabeledPage actual = serviceTest.getPageWithLabels("");
+        LabeledPage actual = controllerTest.getPageWithLabels("");
         Assertions.assertEquals(expected, actual.getBody());
         actual.getLabels().forEach(
                 label -> Assertions.assertEquals(expected, label)
@@ -54,8 +56,8 @@ class ConfluenceCompositeServiceTest {
     @Disabled
     //Real life test to run the service with real data and perform a real query
     void getPageWithLabelsRealTest() throws UnirestException {
-        serviceTest = new ConfluenceCompositeService();
-        LabeledPage labeledPage = serviceTest.getPageWithLabels("44466614");
+        controllerTest = new ConfluenceController();
+        LabeledPage labeledPage = controllerTest.getPageWithLabels("44466614");
         Assertions.assertNotNull(labeledPage);
     }
 }

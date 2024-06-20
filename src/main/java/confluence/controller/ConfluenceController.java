@@ -1,14 +1,16 @@
-package confluence.services;
+package confluence.controller;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
 import confluence.mapping.LabeledPageMapping;
 import confluence.model.Labels;
 import confluence.model.Page;
 import confluence.model.resources.LabeledPage;
+import confluence.services.LabelService;
+import confluence.services.PageService;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class ConfluenceCompositeService {
+public class ConfluenceController {
 
     private final PageService pageService;
     private final LabelService labelService;
@@ -16,7 +18,7 @@ public class ConfluenceCompositeService {
 
     private static final String BODY_FORMAT_VIEW = "view";
 
-    public ConfluenceCompositeService() {
+    public ConfluenceController() {
         this.pageService = new PageService();
         this.labelService = new LabelService();
         this.labeledPageMapping = new LabeledPageMapping();

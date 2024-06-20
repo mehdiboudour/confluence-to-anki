@@ -11,7 +11,7 @@ public class LabelService extends ResourceAbstractService{
     private static final Logger LOG = LogManager.getLogger(LabelService.class);
 
     private static final String RESOURCE = "/pages/{pageId}/labels";
-    protected LabelService() {
+    public LabelService() {
         super(RESOURCE);
     }
 
