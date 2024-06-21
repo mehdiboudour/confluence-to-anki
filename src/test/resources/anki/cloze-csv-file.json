@@ -1,7 +1,7 @@
 {
   "records" : [
-    ["text 1", "back extra 1", "tags 1"],
-    ["text 2", "back extra 2", "tags 2"]
+    ["<div>text 1</div><ul><li>{{c1::item 1.1}}</li><li>{{c2::item 1.2}}</li></ul>", "", "tag1::tag2::tag3"],
+    ["<div>text 2</div><ul><li>{{c1::item 2.1}}</li><li>{{c2::item 2.2}}</li></ul>", "", "tag1::tag2::tag3"]
   ],
   "name" : "cloze"
 }

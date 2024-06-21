@@ -1,7 +1,7 @@
 {
   "records" : [
-    ["front 1", "back 1", "tags 1"],
-    ["front 2", "back 2", "tags 2"]
+    ["front 1", "back 1", "tag1::tag2::tag3"],
+    ["front 2", "back 2", "tag1::tag2::tag3"]
   ],
   "name" : "basic"
 }

@@ -1,5 +1,5 @@
 {
-  "text" : "text 1",
-  "backExtra" : "back extra 1",
-  "tags" : "tags 1"
+  "text" : "<div>text 1</div><ul><li>{{c1::item 1.1}}</li><li>{{c2::item 1.2}}</li></ul>",
+  "backExtra" : "",
+  "tags" : "tag1::tag2::tag3"
 }

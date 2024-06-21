@@ -1,5 +1,5 @@
 {
   "front" : "front 1",
   "back" : "back 1",
-  "tags" : "tags 1"
+  "tags" : "tag1::tag2::tag3"
 }
