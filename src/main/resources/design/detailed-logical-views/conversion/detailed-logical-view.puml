@@ -1,0 +1,52 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+component confluence {
+    package model.resources {
+        class LabeledPage {
+            -body : String
+            -labels : List<String>
+        }
+    }
+
+    package controller {
+        class ConfluenceController {
+            +getPageWithLabels((pageId : String) : LabeledPage
+        }
+    }
+}
+
+component anki {
+    package model.resources {
+        class NotesBatch <<List<Note>>> {
+        }
+    }
+
+    package csv.controller {
+        class AnkiToCsvController {
+            +exportNotesToCsv(notes : NotesBatch) : List<String>
+        }
+    }
+}
+
+component conversion {
+    package controller {
+       class ConversionController {
+        +convertConfluencePageToAnkiImportableCsv(pageId : String) : List<String>
+       }
+    }
+
+    package mapping {
+        class ConfluencePageContentToAnkiNotesMapping {
+            +mapFrom(confluencePage : LabeledPage) : NotesBatch
+        }
+    }
+}
+
+ConversionController --> ConfluencePageContentToAnkiNotesMapping
+ConfluencePageContentToAnkiNotesMapping ..> LabeledPage
+ConfluencePageContentToAnkiNotesMapping ..> NotesBatch
+ConversionController --> ConfluenceController
+ConversionController --> AnkiToCsvController
+
+@enduml
