@@ -44,15 +44,15 @@ class ConversionControllerTest {
     }
 
     @BeforeEach
-    void init() throws NoSuchFieldException, IllegalAccessException {
+    void init() {
         controllerTest = new ConversionController();
-        injectDependency("confluenceController", confluenceController);
-        injectDependency("ankiToCsvController", ankiToCsvController);
-        injectDependency("confluenceToAnkiMapping", confluenceToAnkiMapping);
     }
 
     @Test
-    void mapFromTest() throws UnirestException, IOException, ParserConfigurationException, TransformerException, SAXException {
+    void mapFromTest() throws UnirestException, IOException, ParserConfigurationException, TransformerException, SAXException, NoSuchFieldException, IllegalAccessException {
+        injectDependency("confluenceController", confluenceController);
+        injectDependency("ankiToCsvController", ankiToCsvController);
+        injectDependency("confluenceToAnkiMapping", confluenceToAnkiMapping);
         List<String> expected = List.of(
                 "/Users/mehdi/IdeaProjects/confluence-to-anki/basic.csv",
                 "/Users/mehdi/IdeaProjects/confluence-to-anki/cloze.csv"
@@ -67,7 +67,7 @@ class ConversionControllerTest {
     @Test
     @Disabled
     void convertConfluencePageToAnkiImportableCsvRealTest() throws UnirestException, ParserConfigurationException, IOException, TransformerException, SAXException {
-        List<String> exports = this.controllerTest.convertConfluencePageToAnkiImportableCsv("101384197");
+        List<String> exports = this.controllerTest.convertConfluencePageToAnkiImportableCsv("129531907");
         System.out.print(exports);
     }
 }
