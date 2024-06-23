@@ -5,7 +5,6 @@ import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
